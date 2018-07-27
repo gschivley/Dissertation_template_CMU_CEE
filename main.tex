@@ -1,0 +1,83 @@
+%% Dissertation document
+
+%% Follows CIT dissertation/thesis guidelines found @
+%% https://engineering.cmu.edu/education/academic-policies/graduate-policies/thesis-dissertation.html
+
+\documentclass[12pt,twoside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{afterpage}
+\usepackage{tocloft}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\usepackage[
+backend=biber,
+style=chem-acs,
+citestyle=numeric-comp,
+sorting=none,
+doi=true
+]{biblatex}
+
+% Can add multiple .bib files this way
+\addbibresource{Bibliography.bib}
+
+% Folder with images
+\graphicspath{ {./Images/} }
+
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=black}
+
+\setlength\parindent{0pt}
+\setcounter{tocdepth}{1}
+
+
+\begin{document}
+\frontmatter
+\include{title}
+
+\thispagestyle{empty}
+\cleardoublepage
+
+\pagestyle{plain}
+\tableofcontents
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\doublespacing
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\include{acknowledgements}
+
+\addcontentsline{toc}{chapter}{Abstract}
+\include{abstract}
+
+\mainmatter
+\addcontentsline{toc}{chapter}{Introduction}
+\include{Chapters/intro}
+
+\include{Chapters/chapter1}
+\include{Chapters/chapter2}
+\include{Chapters/chapter3}
+
+\addcontentsline{toc}{chapter}{Conclusion}
+\include{Chapters/conc}
+
+\backmatter
+%\include{biblio} % should be in ASCE Journals format (e.g., JEE)
+\printbibliography[title={References}]
+
+\appendix
+\include{Appendices/appendA}
+%\include{appendB}
+
+\end{document}
